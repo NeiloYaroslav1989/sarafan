@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Sarafan</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- версия для разработки, отображает полезные предупреждения в консоли -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="link">
+            <a href="index.html">Go to main page</a>
+        </div>
+        <div id="app1">
+            {{ message }} {{start}}
+        </div>
+
+        <div id="app-3">
+            <span v-if="seen">Сейчас меня видно</span>
+        </div>
+
+        <div id="demo">
+            <button v-on:click="show = !show">
+                Переключить
+            </button>
+            <transition name="fade">
+                <p v-if="show">привет</p>
+            </transition>
+        </div>
+
+        <div id="app-2">
+            <span v-bind:title="message">
+                Наведи на меня курсор на пару секунд,
+                чтобы увидеть динамически связанное значение title!
+            </span>
+        </div>
+
+        <div id="app-4">
+            <ol>
+                <li v-for="todo in todos">
+                    {{ todo.text }}
+                </li>
+            </ol>
+        </div>
+
+        <div id="example-list">
+            <button @click="show = !show">Переключить отображение</button>
+            <transition name="bounce">
+                <div v-if="show">
+                    <ol>
+                        <li v-for="todo in todos">
+                            {{ todo.text }}
+                        </li>
+                    </ol>
+                </div>
+
+            </transition>
+        </div>
+
+        <div id="example-2">
+            <button @click="show = !show">Переключить отображение</button>
+            <transition name="bounce">
+                <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero,
+                    at lacinia diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.</p>
+            </transition>
+        </div>
+
+        <div id="app-5">
+            <p>{{ message }}</p>
+            <button v-on:click="reverseMessage">Перевернуть сообщение</button>
+        </div>
+
+        <div id="app-6">
+            <p>{{ message }}</p>
+            <input v-model="message">
+            <button v-on:click="reverseWords">Перевернуть слова</button>
+            <button v-on:click="reverseChars">Перевернуть символы</button>
+        </div>
+    </div>
+
+
+
+
+<script src="js/testVue.js"></script>
+</body>
+</html>
